@@ -1,6 +1,7 @@
 <style>
   :global(body){
-    margin-bottom: 3em;
+    margin-bottom: 5em;
+    font-family: "Source Sans Pro", Ubuntu, "Trebuchet MS", Helvetica, Arial, sans-serif;
   }
 
   h1{
