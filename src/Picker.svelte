@@ -1,7 +1,10 @@
 <script>
 import {createEventDispatcher} from 'svelte';
 const dispatch = createEventDispatcher();
-// change
+// colorChange
+
+
+import {rgb2hex} from './utils.js';
 
 import Base from "./Base.svelte";
 
@@ -18,7 +21,8 @@ const handleChange = ({detail}) => {
     isFirstChange = false;
     return;
   }
-  dispatch("colorChange", detail)
+  const color = {...detail, hex: rgb2hex(detail)};
+  dispatch("colorChange", color)
 }
 </script>
 

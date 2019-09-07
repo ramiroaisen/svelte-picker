@@ -1,6 +1,6 @@
 # enhanced fork of svelte-color-picker
 
-# Svelte Picker [\[Demo Page\]](https://ramaisen.github.io/svelte-picker)
+# Svelte Picker [\[Demo Page\]](https://ramiroaisen.github.io/svelte-picker)
  [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 ## Installation
 
@@ -44,9 +44,19 @@ onSomeEvent(() => {
 | className | string="" | class to be added to the root element |
 | on:colorChange | function | Given function gets called every time color changes |
 | startColor | string | Initial color (hexadecimal without alpha) |
-| setColor | function | set the color of the picker from outside whitout alpha (for now)
+| setColor | function | set the color of the picker from outside (whitout alpha for now) |
 
 License
 ----
 
 MIT
+
+
+Contribute
+----
+```sh
+git clone https://github.com/ramiroaisen/svelte-picker.git
+npm i -D
+npm run dev
+```
+opens a dev server
