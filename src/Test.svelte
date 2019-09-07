@@ -1,3 +1,7 @@
+<style>
+  
+</style>
+
 <script>
 import { onMount } from 'svelte';
 import Picker from './Picker.svelte';

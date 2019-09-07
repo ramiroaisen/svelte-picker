@@ -41,9 +41,9 @@ onSomeEvent(() => {
 #### \</Picker>
 | Props | Value Type | Use |
 | ------ | ------ | ------ |
+| className | string="" | class to be added to the root element |
 | on:colorChange | function | Given function gets called every time color changes |
-| startColor | string | Initializes color picker with the value (hexadecimal 
-without alpha). |
+| startColor | string | Initial color (hexadecimal without alpha) |
 | setColor | function | set the color of the picker from outside whitout alpha (for now)
 
 License

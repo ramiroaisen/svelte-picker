@@ -210,6 +210,7 @@
 <script>
 import {onMount, createEventDispatcher} from 'svelte';
 
+export let className = "";
 export let startColor = "#FF0000";
 
 onMount(() => {
@@ -612,7 +613,7 @@ function rgbToHSV(r, g, b, update) {
 }
 </script>
 
-<div class="main-container">
+<div class="main-container {className}">
 
   <div bind:this={colorSquare} class="colorsquare size">
       <div class="saturation-gradient">
