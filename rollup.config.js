@@ -5,6 +5,9 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
+const docs = process.env.DIR === "docs";
+
+const dir = docs ? "docs" : "public";
 
 export default {
 	input: 'src/rollup.js',
@@ -12,7 +15,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/bundle.js'
+		file: `${dir}/bundle.js`
 	},
 	plugins: [
 		svelte({
@@ -21,7 +24,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write('public/bundle.css');
+				css.write(`${dir}/bundle.css`);
 			}
 		}),
 
@@ -35,7 +38,7 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('public'),
+		!production && livereload(dir),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
