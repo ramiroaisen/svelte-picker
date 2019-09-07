@@ -1,6 +1,6 @@
 # enhanced fork of svelte-color-picker
 
-# Svelte Picker [\[Demo Page\]](https://qintarp.github.io/svelte-color-picker)
+# Svelte Picker [\[Demo Page\]](https://ramaisen.github.io/svelte-picker)
  [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 ## Installation
 
@@ -13,7 +13,7 @@ $ npm i svelte-picker
 In your component :
 ```jsx
 <script>
-import {Picker} from 'svelte-picker';
+import Picker from 'svelte-picker';
 // To bind (not necessary)
 let picker;
 
