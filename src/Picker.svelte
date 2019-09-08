@@ -22,7 +22,7 @@ const handleChange = ({detail}) => {
     return;
   }
   const color = {...detail, hex: rgb2hex(detail)};
-  dispatch("colorChange", color)
+  dispatch("colorchange", color)
 }
 </script>
 
@@ -30,5 +30,5 @@ const handleChange = ({detail}) => {
   bind:this={base}
   {className}
   {startColor}
-  on:colorChange={handleChange}
+  on:colorchange={handleChange}
 />

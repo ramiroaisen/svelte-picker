@@ -294,7 +294,7 @@ function updateHuePicker() {
 }
 
 function colorChangeCallback() {
-  dispatch('colorChange', {
+  dispatch('colorchange', {
   			r: r,
         g: g,
         b: b,
@@ -593,14 +593,14 @@ const handleInputR = (event) => {
   r = fixRGB(event.target.value);
   const rgba = {r,g,b,a};
   setColor(rgba)
-  dispatch("colorChange", rgba)
+  dispatch("colorchange", rgba)
 }
 
 const handleInputG = (event) => {
   g = fixRGB(event.target.value);
   const rgba = {r,g,b,a};
   setColor(rgba)
-  dispatch("colorChange", rgba)
+  dispatch("colorchange", rgba)
 }
 
 
@@ -608,14 +608,14 @@ const handleInputB = (event) => {
   b = fixRGB(event.target.value);
   const rgba = {r,g,b,a};
   setColor(rgba)
-  dispatch("colorChange", rgba)
+  dispatch("colorchange", rgba)
 }
 
 const handleInputA = (event) => {
   a = Math.min(0, Math.max(1, parseFloat(event.target.value) | 0))
   const rgba = {r,g,b,a};
   setColor(rgba)
-  dispatch("colorChange", rgba)
+  dispatch("colorchange", rgba)
 }
 
 const nums = "0123456789";

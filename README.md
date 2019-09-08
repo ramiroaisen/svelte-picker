@@ -34,18 +34,18 @@ onSomeEvent(() => {
 <Picker
 	bind:this={picker}
 	alpha={true}
-	on:colorChange={handleChange}
+	on:colorchange={handleChange}
 	startColor={"#FBFBFB"}
 />
 ```
 
 | Props | Value Type | Use |
 | ------ | ------ | ------ |
-| class | string="" | class to be added to the root element |
+| class | string="" | class(es) to be added to the root element |
 | alpha | boolean=true | wheather to show or not alpha picker |
 | startColor | string | Initial color (hexadecimal without alpha) |
 | setColor | function | set the color of the picker from outside (whitout alpha for now) |
- on:colorChange | callback | Given function gets called every time color changes |
+| on:colorchange | callback | Given callback gets called every time color changes |
 
 
 License
