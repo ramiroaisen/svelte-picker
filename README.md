@@ -33,9 +33,10 @@ onSomeEvent(() => {
 
 <Picker
 	bind:this={picker}
+	class=""
 	alpha={true}
 	on:colorchange={handleChange}
-	startColor={"#FBFBFB"}
+	startColor={"#ff0000"}
 />
 ```
 
@@ -43,7 +44,7 @@ onSomeEvent(() => {
 | ------ | ------ | ------ |
 | class | string="" | class(es) to be added to the root element |
 | alpha | boolean=true | wheather to show or not alpha picker |
-| startColor | string | Initial color (hexadecimal without alpha) |
+| startColor | string="#ff0000" | Initial color (hexadecimal without alpha) |
 | setColor | function | set the color of the picker from outside (whitout alpha for now) |
 | on:colorchange | callback | Given callback gets called every time color changes |
 
