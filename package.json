@@ -1,6 +1,6 @@
 {
   "name": "svelte-picker",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "svelte": "src/Picker.svelte",
   "repository": {
     "type": "git",

@@ -18,7 +18,7 @@ import Picker from 'svelte-picker';
 let picker;
 
 function handleChange(event){
-	const {r, g, b, a} = event.detail;
+	const {r, g, b, a, hex}  = event.detail;
 	// Note that when you call setColor this will be called too
 	// (should we change that?)
 }
@@ -33,18 +33,20 @@ onSomeEvent(() => {
 
 <Picker
 	bind:this={picker}
+	alpha={true}
 	on:colorChange={handleChange}
 	startColor={"#FBFBFB"}
 />
 ```
 
-#### \</Picker>
 | Props | Value Type | Use |
 | ------ | ------ | ------ |
-| className | string="" | class to be added to the root element |
-| on:colorChange | function | Given function gets called every time color changes |
+| class | string="" | class to be added to the root element |
+| alpha | boolean=true | wheather to show or not alpha picker |
 | startColor | string | Initial color (hexadecimal without alpha) |
 | setColor | function | set the color of the picker from outside (whitout alpha for now) |
+ on:colorChange | callback | Given function gets called every time color changes |
+
 
 License
 ----
