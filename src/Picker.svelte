@@ -11,11 +11,11 @@ import Base from "./Base.svelte";
 let base;
 
 export let startColor;
-export let className = "";
+let className = "";
+export {className as class};
 export const setColor = (color) => base && base.setColor(color);
 
 let isFirstChange = true;
-
 const handleChange = ({detail}) => {
   if(isFirstChange){
     isFirstChange = false;

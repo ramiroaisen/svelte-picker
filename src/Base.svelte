@@ -1,31 +1,57 @@
 <style>
+.main-container, .main-container *{
+  box-sizing: border-box;
+}
+
 .main-container {
-	width: 240px;
-	height: 265px;
+	display: flex;
+  flex-direction: column;
+  width: 240px;
 	background: #f2f2f2;
 	border-radius: 1px;
-	-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.51);
-	-moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.51);
 	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.51);
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
             user-select: none;
+}
+
+.colorsquare {
+  height: 160px;
+  width: 100%;
+  flex: none;
+  background: rgb(255, 0, 0);
 }
 
 .saturation-gradient {
 	background: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
-	width: 240px;
-	height: 160px;
+	height: 100%;
+  width: 100%;
+  flex: none;
 }
 
 .value-gradient {
 	background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
 	overflow: hidden;
-	width: 240px;
 	height: 160px;
+}
+
+.colorsquare-picker {
+	margin: 0;
+	padding: 0;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 2px solid #FFFB;
+	position: relative;
+	transform: translate(-9px, -9px);
+	left: 100%;
+}
+
+.colorsquare-event {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform: translate(0, -16px);
+  touch-action: none;
 }
 
 .hue-selector {
@@ -96,114 +122,68 @@
 	border-radius: 10px;
 }
 
-.colorsquare {
-	background: rgb(255, 0, 0);
-}
-
-.colorsquare-picker {
-	margin: 0;
-	padding: 0;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	border: 2px solid #FFFB;
-	position: relative;
-	transform: translate(-9px, -9px);
-	left: 100%;
-}
-
-.colorsquare-event {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	transform: translate(0, -16px);
-  touch-action: none;
-}
-
 .color-info-box {
 	margin: 10px;
-	width: 100%;
-	height: 22px;
-	vertical-align: middle;
-	position: relative;
+  display: flex;
 }
 
-.color-picked {
-	width: 18px;
-	height: 18px;
-	border-radius: 2px;
-	background: rgba(255, 0, 0, 1);
-	display: inline-block;
-}
 
 .color-picked-bg {
 	background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
 	background-size: 10px 10px;
 	background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
-	border: 2px solid #FFF;
+	border: 1px solid #e3e3e3;
 	border-radius: 4px;
 	width: 18px;
 	height: 18px;
-	color: #fff;
-	display: inline-block;
+  flex: none;
+}
+
+.color-picked {
+  width: 100%;
+  height: 100%;
+	background: rgba(255, 0, 0, 1);
 }
 
 .hex-text-block {
-	display: inline-block;
-	background: white;
-	border-radius: 2px;
-	padding: 2px;
-	border: 1px solid #e3e3e3;
-	height: 16px;
-	width: 54px;
-	vertical-align: top;
-	text-align: center;
+  display: block;
+  margin-left: 3px;
 }
 
-.rgb-text-block {
-	display: inline-block;
-	background: white;
-	border-radius: 2px;
-	padding: 2px;
-	margin: 0 1px;
-	border: 1px solid #dcdcdc;
-	height: 16px;
-	width: 23px;
-	vertical-align: top;
-	text-align: center;
-}
-
-.rgb-text-div {
-	right: 10%;
-	display: inline-block;
-	vertical-align: top;
-	position: absolute;
-}
-
-.text-label {
-	position: relative;
-	top: -12px;
-	font-family: sans-serif;
-	font-size: small;
-  color:#888;
+.rgb-text-block{
+  display: block;
+  margin-left: 3px;
 }
 
 .text {
-	display: inline;
-	font-family: sans-serif;
-	margin: 0;
-	display: inline-block;
-	font-size: 12px;
-	font-size-adjust: 0.50;
-	position: relative;
-	top: -1px;
-  vertical-align: middle;
-  -webkit-touch-callout: all;
-    -webkit-user-select: all;
-     -khtml-user-select: all;
-       -moz-user-select: all;
-        -ms-user-select: all;
-            user-select: all;
+  font-size: 0.6em;
+  background: white;
+	border-radius: 2px;
+	border: 1px solid #e3e3e3;
+	height: 20px;
+  line-height: 20px;
+	text-align: center;
+  min-width: 1.75em;
+}
+
+.text-hex{
+  width: 6em;
+}
+
+.text-rgba{
+  width: 3em;
+}
+
+.rgb-text-div {
+  display: flex;
+  margin-left: auto;
+}
+
+.text-label {
+	margin-top: 5px;
+  font-size: 0.75em;
+  color:#888;
+  text-align: center;
 }
 </style>
 
@@ -211,8 +191,11 @@
 import {onMount, createEventDispatcher} from 'svelte';
 import {rgb2hex} from './utils.js';
 
-export let className = "";
-export let startColor = "#FF0000";
+let className = "";
+export {className as class};
+
+export let alpha = true;
+export let startColor = "#ff0000";
 
 onMount(() => {
   document.addEventListener("mouseup", mouseUp);
@@ -241,13 +224,6 @@ let alphaEvent;
 let huePicker;
 let hueEvent;º
 let colorSquare;
-let pickedColor;
-
-/*
-Number.prototype.mod = function(n) {
-    return ((this%n)+n)%n;
-};
-*/
 
 const dispatch = createEventDispatcher();
 let tracked;
@@ -258,7 +234,7 @@ let a = 1;
 let r = 255;
 let g = 0;
 let b = 0;
-let hexValue = '#FF0000';
+let hexValue = '#ff0000';
 
 
 function setStartColor() {
@@ -279,6 +255,10 @@ function setStartColor() {
   rgbToHSV(r,g,b,true);
   updateCsPicker();
   updateHuePicker();
+}
+
+const handleRGBInput = (event) => {
+  setColor({r, g, b, a});
 }
 
 function killMouseEvents() {
@@ -471,7 +451,6 @@ function colorChange() {
  g = rgb[1];
  b = rgb[2];
  hexValue = RGBAToHex();
- pickedColor.style.background = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
  colorChangeCallback();
 }
 
@@ -602,6 +581,56 @@ function rgbToHSV(r, g, b, update) {
       return {h:hnew,s:snew,v:vnew};
     }
 }
+
+const handleInputHex = (event) => {
+  setColor(event.target.value);
+  dispatch('colorchange', {r,g,b,a});
+}
+
+const fixRGB = (value) => Math.min(255, Math.max(0, value | 0));
+
+const handleInputR = (event) => {
+  r = fixRGB(event.target.value);
+  const rgba = {r,g,b,a};
+  setColor(rgba)
+  dispatch("colorChange", rgba)
+}
+
+const handleInputG = (event) => {
+  g = fixRGB(event.target.value);
+  const rgba = {r,g,b,a};
+  setColor(rgba)
+  dispatch("colorChange", rgba)
+}
+
+
+const handleInputB = (event) => {
+  b = fixRGB(event.target.value);
+  const rgba = {r,g,b,a};
+  setColor(rgba)
+  dispatch("colorChange", rgba)
+}
+
+const handleInputA = (event) => {
+  a = Math.min(0, Math.max(1, parseFloat(event.target.value) | 0))
+  const rgba = {r,g,b,a};
+  setColor(rgba)
+  dispatch("colorChange", rgba)
+}
+
+const nums = "0123456789";
+const handleKeypressRGB = (event) => {
+  if(nums.indexOf(event.key) === -1)
+    event.preventDefault();
+}
+
+const handleKeypressA = (event) => {
+  if(nums.concat(".").indexOf(event.key) === -1)
+    event.preventDefault()
+}
+
+
+$: fixedAlpha = Math.round(a * 100) / 100;
 </script>
 
 <div class="main-container {className}">
@@ -620,36 +649,72 @@ function rgbToHSV(r, g, b, update) {
       <div bind:this={hueEvent} class="hue-event" on:mousedown={hueDown} on:touchstart={hueDownTouch}></div>
   </div>
 
-  <div class="alpha-selector">
+  {#if alpha}
+    <div class="alpha-selector">
       <div class="alpha-value"></div>
       <div bind:this={alphaPicker} class="alpha-picker"></div>
       <div bind:this={alphaEvent} class="alpha-event" on:mousedown={alphaDown} on:touchstart={alphaDownTouch}></div>
-  </div>
+    </div>
+  {/if}
 
   <div class="color-info-box">
     <div class="color-picked-bg">
-      <div bind:this={pickedColor} class="color-picked"></div>
+      <div class="color-picked" style="background-color: rgba({r},{g},{b},{a})"></div>
     </div>
 
     <div class="hex-text-block">
-      <p class="text">{hexValue}</p>
+      <input class="text text-hex" value={hexValue} on:input={handleInputHex}/>
     </div>
 
     <div class="rgb-text-div">
       <div class="rgb-text-block">
-        <p class="text">{r}</p>
-        <p class="text-label">R</p>
+        <input
+          type="text"
+          class="text text-rgba"
+          value={r}
+          maxlength={3}
+          on:input={handleInputR}
+          on:keypress={handleKeypressRGB}
+        />
+        <div class="text-label">R</div>
       </div>
 
       <div class="rgb-text-block">
-        <p class="text">{g}</p>
-        <p class="text-label">G</p>
+        <input
+          type="text"
+          class="text text-rgba"
+          value={g}
+          maxlength={3}
+          on:input={handleInputG}
+          on:keypress={handleKeypressRGB}
+        />
+        <div class="text-label">G</div>
       </div>
 
       <div class="rgb-text-block">
-        <p class="text">{b}</p>
-        <p class="text-label">B</p>
+        <input
+          type="text"
+          class="text text-rgba"
+          value={b}
+          maxlength={3}
+          on:input={handleInputB}
+          on:keypress={handleKeypressRGB}
+        />
+        <div class="text-label">B</div>
       </div>
+
+      {#if alpha}
+        <div class="rgb-text-block">
+          <input
+            type="text"
+            class="text text-rgba"
+            value={fixedAlpha}
+            on:input={handleInputA}
+            on:keypress={handleKeypressA}
+          />
+          <div class="text-label">A</div>
+        </div>
+      {/if}
     </div>
   </div>
 
