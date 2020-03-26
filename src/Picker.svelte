@@ -11,6 +11,8 @@ import Base from "./Base.svelte";
 let base;
 
 export let startColor;
+export let alpha;
+export let showInfobox;
 let className = "";
 export {className as class};
 export const setColor = (color) => base && base.setColor(color);
@@ -30,5 +32,7 @@ const handleChange = ({detail}) => {
   bind:this={base}
   {className}
   {startColor}
+  {alpha}
+  {showInfobox}
   on:colorchange={handleChange}
 />

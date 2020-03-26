@@ -195,6 +195,7 @@ let className = "";
 export {className as class};
 
 export let alpha = true;
+export let showInfobox = true;
 export let startColor = "#ff0000";
 
 onMount(() => {
@@ -222,7 +223,7 @@ let colorSquareEvent;
 let alphaPicker;
 let alphaEvent;
 let huePicker;
-let hueEvent;º
+let hueEvent;
 let colorSquare;
 
 const dispatch = createEventDispatcher();
@@ -262,7 +263,9 @@ const handleRGBInput = (event) => {
 }
 
 function killMouseEvents() {
-  alphaEvent.removeEventListener("mousedown",alphaDown);
+  if (alphaEvent) {
+    alphaEvent.removeEventListener("mousedown",alphaDown);
+  }
   colorSquareEvent.removeEventListener("mousedown",csDown);
   hueEvent.removeEventListener("mousedown",hueDown);
   document.removeEventListener("mouseup",mouseUp);
@@ -272,7 +275,9 @@ function killMouseEvents() {
 }
 
 function killTouchEvents() {
-  alphaEvent.removeEventListener("touchstart",alphaDownTouch);
+  if (alphaEvent) {
+    alphaEvent.removeEventListener("touchstart",alphaDownTouch);
+  }
   colorSquareEvent.removeEventListener("touchstart",csDownTouch);
   hueEvent.removeEventListener("touchstart",hueDownTouch);
   document.removeEventListener("touchend",mouseUp);
@@ -657,65 +662,67 @@ $: fixedAlpha = Math.round(a * 100) / 100;
     </div>
   {/if}
 
-  <div class="color-info-box">
-    <div class="color-picked-bg">
-      <div class="color-picked" style="background-color: rgba({r},{g},{b},{a})"></div>
-    </div>
-
-    <div class="hex-text-block">
-      <input class="text text-hex" value={hexValue} on:input={handleInputHex}/>
-    </div>
-
-    <div class="rgb-text-div">
-      <div class="rgb-text-block">
-        <input
-          type="text"
-          class="text text-rgba"
-          value={r}
-          maxlength={3}
-          on:input={handleInputR}
-          on:keypress={handleKeypressRGB}
-        />
-        <div class="text-label">R</div>
+  {#if showInfobox}
+    <div class="color-info-box">
+      <div class="color-picked-bg">
+        <div class="color-picked" style="background-color: rgba({r},{g},{b},{a})"></div>
       </div>
 
-      <div class="rgb-text-block">
-        <input
-          type="text"
-          class="text text-rgba"
-          value={g}
-          maxlength={3}
-          on:input={handleInputG}
-          on:keypress={handleKeypressRGB}
-        />
-        <div class="text-label">G</div>
+      <div class="hex-text-block">
+        <input class="text text-hex" value={hexValue} on:input={handleInputHex}/>
       </div>
 
-      <div class="rgb-text-block">
-        <input
-          type="text"
-          class="text text-rgba"
-          value={b}
-          maxlength={3}
-          on:input={handleInputB}
-          on:keypress={handleKeypressRGB}
-        />
-        <div class="text-label">B</div>
-      </div>
-
-      {#if alpha}
+      <div class="rgb-text-div">
         <div class="rgb-text-block">
           <input
             type="text"
             class="text text-rgba"
-            value={fixedAlpha}
-            on:input={handleInputA}
-            on:keypress={handleKeypressA}
+            value={r}
+            maxlength={3}
+            on:input={handleInputR}
+            on:keypress={handleKeypressRGB}
           />
-          <div class="text-label">A</div>
+          <div class="text-label">R</div>
         </div>
-      {/if}
+
+        <div class="rgb-text-block">
+          <input
+            type="text"
+            class="text text-rgba"
+            value={g}
+            maxlength={3}
+            on:input={handleInputG}
+            on:keypress={handleKeypressRGB}
+          />
+          <div class="text-label">G</div>
+        </div>
+
+        <div class="rgb-text-block">
+          <input
+            type="text"
+            class="text text-rgba"
+            value={b}
+            maxlength={3}
+            on:input={handleInputB}
+            on:keypress={handleKeypressRGB}
+          />
+          <div class="text-label">B</div>
+        </div>
+
+        {#if alpha}
+          <div class="rgb-text-block">
+            <input
+              type="text"
+              class="text text-rgba"
+              value={fixedAlpha}
+              on:input={handleInputA}
+              on:keypress={handleKeypressA}
+            />
+            <div class="text-label">A</div>
+          </div>
+        {/if}
+      </div>
     </div>
-  </div>
+  {/if}
 
 </div>

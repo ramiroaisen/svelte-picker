@@ -67,7 +67,7 @@ export let color2 = "#00ffff";
     <div class="wrap">
       <Picker 
         bind:this={p1}
-        on:colorChange={(e) => color1 = e.detail.hex} 
+        on:colorchange={(e) => color1 = e.detail.hex} 
         startColor={color1}
       />
     </div>
@@ -79,9 +79,10 @@ export let color2 = "#00ffff";
       <Picker
         bind:this={p2}
         startColor={color2}
-        on:colorChange={(e) => {
+        alpha={false}
+        showInfobox={false}
+        on:colorchange={(e) => {
           color2 = e.detail.hex;
-          p1.setColor(e.detail)
         }}
       />
     </div>
