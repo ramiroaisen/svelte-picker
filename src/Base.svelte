@@ -222,7 +222,7 @@ let colorSquareEvent;
 let alphaPicker;
 let alphaEvent;
 let huePicker;
-let hueEvent;º
+let hueEvent;
 let colorSquare;
 
 const dispatch = createEventDispatcher();
